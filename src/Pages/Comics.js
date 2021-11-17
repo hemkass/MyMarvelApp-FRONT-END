@@ -24,7 +24,7 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <p>en cours de chargement</p>
@@ -41,9 +41,9 @@ const Comics = () => {
       ></input>
       <div className="section">
         {data
-          .filter((elem) => {
+          /*.filter((elem) => {
             return elem.title.toLowerCase().includes(search.toLowerCase());
-          })
+          })*/
           .map((elem, index) => {
             return (
               <div key={elem._id} className="bloc">

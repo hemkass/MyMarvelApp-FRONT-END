@@ -14,7 +14,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/characters");
+        const response = await axios.get(
+          `http://localhost:4000/characters/title=${search}`
+        );
         //console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -23,7 +25,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <p>en cours de chargement</p>
@@ -40,9 +42,9 @@ const Home = () => {
       ></input>
       <div className="section">
         {data.results
-          .filter((elem) => {
+          /*.filter((elem) => {
             return elem.name.toLowerCase().includes(search.toLowerCase());
-          })
+          })*/
           .map((elem, index) => {
             return (
               <Link
