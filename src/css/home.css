@@ -1,0 +1,38 @@
+.section {
+  display: flex;
+  column-gap: 50px;
+}
+
+.bloc {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 250px;
+  height: 200px;
+}
+
+.details {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  gap: 5px;
+}
+
+.title {
+  background-color: chartreuse;
+  padding-top: 20px;
+}
+
+.description {
+  background-color: cornsilk;
+}
+
+img {
+  width: 100%;
+  width: 100%;
+  object-fit: contain;
+}

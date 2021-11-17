@@ -1,1 +1,5 @@
 /* Other rules */
+.wrapper {
+  width: 1150px;
+  margin: 30px auto 30px auto;
+}

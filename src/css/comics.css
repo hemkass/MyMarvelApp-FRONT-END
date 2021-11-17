@@ -1,0 +1,40 @@
+.section {
+  display: flex;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+
+.bloc {
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 70px;
+}
+
+.image {
+  width: 250px;
+}
+
+.details {
+  padding-left: 50px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: brown;
+  gap: 5px;
+}
+
+.title {
+  background-color: chartreuse;
+  padding-top: 20px;
+}
+
+.description {
+  background-color: cornsilk;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
