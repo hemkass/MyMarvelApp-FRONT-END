@@ -1,5 +1,5 @@
 import "../App.css";
-import "../css/home.css";
+import "../css/comics.css";
 
 import { Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
