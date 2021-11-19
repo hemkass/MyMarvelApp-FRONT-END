@@ -1,5 +1,10 @@
 /* Other rules */
+body {
+  background: #000000;
+}
+
 .wrapper {
-  width: 1150px;
+  width: 1400px;
   margin: 30px auto 30px auto;
+  background: #000000;
 }

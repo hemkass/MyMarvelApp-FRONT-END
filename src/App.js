@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Home from "./Pages/Home";
@@ -19,16 +19,18 @@ library.add(faSearch, faEnvelope, faTimes, faHeart, faHeartBroken);
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/characters/:id" element={<Characters />}></Route>
-          <Route path="/comics" element={<Comics />}></Route>
-          <Route path="/bookmarks" element={<Bookmarks />}></Route>
-        </Routes>
-      </Router>
-    </div>
+    <body>
+      <div className="wrapper">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/characters/:id" element={<Characters />}></Route>
+            <Route path="/comics" element={<Comics />}></Route>
+            <Route path="/bookmarks" element={<Bookmarks />}></Route>
+          </Routes>
+        </Router>
+      </div>
+    </body>
   );
 }
 

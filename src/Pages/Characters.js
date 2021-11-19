@@ -1,6 +1,6 @@
 import "../App.css";
 import "../css/comics.css";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "../css/comics.css";
 
 import axios from "axios";
@@ -25,7 +25,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <p>en cours de chargement</p>

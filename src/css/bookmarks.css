@@ -1,0 +1,50 @@
+.gallery {
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.bloc3 {
+  display: flex;
+  width: 300px;
+  height: 500px;
+  flex-direction: column;
+  column-gap: 70px;
+  row-gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.image {
+  box-shadow: rgba(189, 169, 169, 0.3) -3px 1px 10px 1px;
+  display: flex;
+  height: 60%;
+  justify-content: start;
+  width: 100%;
+}
+
+.details3 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  object-fit: cover;
+
+  gap: 5px;
+}
+
+.bookmarks .title {
+  background-color: green;
+  padding-top: 20px;
+}
+
+.bookmarks .description {
+  background-color: cornsilk;
+}
+
+.bookmarks img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

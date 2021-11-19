@@ -7,7 +7,8 @@
 .bloc {
   background-color: pink;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
   margin-bottom: 70px;
 }
 
@@ -24,8 +25,8 @@
   gap: 5px;
 }
 
-.title {
-  background-color: chartreuse;
+.comics .title {
+  background-color: blue;
   padding-top: 20px;
 }
 

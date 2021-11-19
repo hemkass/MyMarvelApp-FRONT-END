@@ -2,18 +2,17 @@ import "../App.css";
 import "../css/home.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
-import Characters from "./Characters";
+
 import { useState, useEffect } from "react";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
+
   const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Home = () => {
         );
         //console.log(response.data);
         setData(response.data);
-        console.log(response.data);
+        //console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -53,9 +52,8 @@ const Home = () => {
           })*/
           .map((elem, index) => {
             return (
-              <div>
+              <div key={elem._id}>
                 <Link
-                  key={elem._id}
                   to={`/characters/${elem._id}`}
                   state={{
                     name: elem.name,
@@ -79,22 +77,39 @@ const Home = () => {
                   </div>
                 </Link>{" "}
                 <div>
-                  {console.log(elem.name)}
                   <FontAwesomeIcon
                     icon={["fas", "heart"]}
                     onClick={() => {
-                      let arr = [...favorite];
-                      arr.push(elem);
-                      setFavorite(arr);
+                      setFavorite(elem);
+                      //console.log(favorite);
+                      if (localStorage.getItem("favorite")) {
+                        let arr = JSON.parse(localStorage.getItem("favorite"));
+                        console.log("monobjet", arr);
 
-                      localStorage.setItem("favorite", JSON.stringify(arr));
+                        console.log(
+                          "ma condition",
+                          arr.find((item) => item._id === elem._id)
+                        );
+
+                        if (!arr.find((item) => item._id === elem._id)) {
+                          arr.push(elem);
+                          console.log("monobjet2", arr);
+
+                          localStorage.setItem("favorite", JSON.stringify(arr));
+                        } else {
+                          console.log("attention");
+                        }
+                      } else {
+                        let arr2 = [elem];
+                        console.log("1er fois", arr2);
+                        localStorage.setItem("favorite", JSON.stringify(arr2));
+                      }
                     }}
                   />
                 </div>
               </div>
             );
           })}
-        {console.log(favorite)}
       </div>
     </div>
   );
