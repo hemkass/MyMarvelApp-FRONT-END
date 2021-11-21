@@ -53,17 +53,20 @@ const Home = () => {
   return isLoading ? (
     <p>en cours de chargement</p>
   ) : (
-    <div>
+    <div className="home">
       <div className="wrapper">
-        <h1>Les comics</h1>
-        <input
-          type="search"
-          placeholder="rechercher"
-          value={search}
-          onChange={(event) => {
-            setSearch(event.target.value);
-          }}
-        ></input>
+        <h1>Les Personnages</h1>
+        <div className="searchDiv">
+          <input
+            className="search"
+            type="search"
+            placeholder="rechercher : par exemple Iron Man"
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+          ></input>
+        </div>
         <div className="section">
           {data.results
             /*.filter((elem) => {
@@ -72,31 +75,10 @@ const Home = () => {
             .map((elem, index) => {
               return (
                 <div key={elem._id}>
-                  <Link
-                    to={`/characters/${elem._id}`}
-                    state={{
-                      name: elem.name,
-                      id: elem._id,
-                      desc: elem.description,
-                    }}
-                  >
-                    <div className="bloc">
-                      <div className="image">
-                        <img
-                          src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-                          alt="miniature du personnage"
-                        ></img>
-                      </div>
-                      <div className="details">
-                        <div className="title">{elem.name}</div>{" "}
-                        {elem.description && (
-                          <div className="description">{elem.description}</div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>{" "}
-                  <div>
+                  {" "}
+                  <div className="like">
                     <FontAwesomeIcon
+                      className="icon"
                       icon={["fas", "heart"]}
                       onClick={() => {
                         setFavorite(elem);
@@ -134,6 +116,29 @@ const Home = () => {
                       }}
                     />
                   </div>
+                  <Link
+                    to={`/characters/${elem._id}`}
+                    state={{
+                      name: elem.name,
+                      id: elem._id,
+                      desc: elem.description,
+                    }}
+                  >
+                    <div className="bloc">
+                      <div className="image">
+                        <img
+                          src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                          alt="miniature du personnage"
+                        ></img>
+                      </div>
+                      <div className="details">
+                        <div className="title">{elem.name}</div>{" "}
+                        {elem.description && (
+                          <div className="description">{elem.description}</div>
+                        )}
+                      </div>
+                    </div>
+                  </Link>{" "}
                 </div>
               );
             })}

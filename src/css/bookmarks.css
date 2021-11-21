@@ -2,25 +2,36 @@
   height: 500px;
   display: flex;
   flex-direction: row;
+
   column-gap: 50px;
   flex-wrap: wrap;
   margin-bottom: 200px;
 }
 
 .bloc3 {
+  position: relative;
   display: flex;
-  width: 300px;
+  width: 400px;
   height: 500px;
   flex-direction: column;
   column-gap: 70px;
   row-gap: 10px;
-
   margin-bottom: 30px;
-  box-shadow: 1px 1px 3px 3px grey;
+  box-shadow: 7px 1px 23px 3px grey;
+}
+
+.blur {
+  position: absolute;
+  z-index: 300;
+  background-color: rgb(236, 29, 36, 0.8);
+  width: 350px;
+  height: 150px;
+  perspective: 250px;
+  transform: rotateX(90deg);
 }
 
 .image {
-  box-shadow: rgba(189, 169, 169, 0.3) -3px 1px 10px 1px;
+  position: relative;
   display: flex;
   height: 60%;
   justify-content: start;
@@ -28,21 +39,29 @@
 }
 
 .details3 {
+  padding-left: 10px;
   display: flex;
-  justify-content: flex-end;
+
   align-items: center;
   object-fit: cover;
 
-  gap: 5px;
+  gap: 25px;
 }
 
 .bookmarks .title {
-  background-color: green;
+  background-color: rgb(236, 29, 36, 0.6);
   padding-top: 20px;
+}
+.bookmarks .dislike {
+  position: absolute;
+  z-index: 20;
+  font-size: 40px;
 }
 
 .bookmarks .description {
   background-color: cornsilk;
+  text-align: justify;
+  padding-right: 15px;
 }
 
 .bookmarks img {

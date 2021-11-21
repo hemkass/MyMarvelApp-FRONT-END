@@ -58,6 +58,7 @@ const Comics = () => {
     <div className="comics">
       <h1>Les comics</h1>
       <input
+        className="search"
         type="search"
         placeholder="rechercher"
         value={search}
@@ -74,10 +75,10 @@ const Comics = () => {
             return (
               <div key={elem._id}>
                 <div className="bloc">
-                  {" "}
-                  <div>
-                    <span>
+                  <div className="favori">
+                    <span className="like">
                       <FontAwesomeIcon
+                        className="icon"
                         icon={["fas", "heart"]}
                         onClick={() => {
                           if (localStorage.getItem("favoriteComics")) {
@@ -105,16 +106,17 @@ const Comics = () => {
                           }
                         }}
                       />
-                      via localStorage
+                      <span className="likeText">via localStorage</span>
                     </span>
-                    <span className="BDD">
+                    <span className="like">
                       <FontAwesomeIcon
+                        className="icon"
                         icon={["fas", "cloud-upload-alt"]}
                         onClick={() => {
                           handleComicBdd(elem);
                         }}
-                      />
-                      via BDD
+                      />{" "}
+                      <span className="likeText">via BDD</span>
                     </span>
                   </div>
                   <div className="image">

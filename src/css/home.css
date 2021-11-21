@@ -1,39 +1,118 @@
 .section {
   display: flex;
   column-gap: 50px;
+  flex-wrap: wrap;
 }
 
-.scene .bloc {
-  background-color: blue;
-  display: flex;
-  flex-direction: column;
-  width: 200px;
+.search {
+  padding: 10px 200px 10px 200px;
+  margin-bottom: 50px;
+  border: red 1px solid;
+  box-shadow: 1px 1px 10px 3px rgb(41, 39, 39);
 }
 
-.image {
+.search::placeholder {
   width: 250px;
-  height: 200px;
 }
 
-.details {
-  width: 200px;
+.home {
+  background-image: url(https://res.cloudinary.com/dyj84szrx/image/upload/v1637513551/MARVEL/lune_ulmc2q.png);
+  background-repeat: no-repeat;
+  z-index: -10px;
+}
+
+.home .bloc {
   display: flex;
+  position: relative;
+  display: flex;
+  width: 300px;
+  z-index: 30px;
+
   flex-direction: column;
-  background-color: blue;
+  column-gap: 70px;
+  row-gap: 10px;
+  margin-bottom: 30px;
+  box-shadow: 7px 1px 23px 3px grey;
+
+  margin-bottom: 150px;
+}
+
+.home .image {
+  position: relative;
+  display: flex;
+  height: 40%;
+  justify-content: start;
+  width: 100%;
+}
+
+.home .details {
+  width: 95%;
+  display: flex;
+  padding-left: 7px;
+  padding-right: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  flex-direction: column;
+  gap: 25px;
+
   gap: 5px;
 }
+.home .favori {
+  display: flex;
+  row-gap: 20px;
 
-.title {
-  background-color: chartreuse;
-  padding-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.home .like {
+  position: absolute;
+  padding: 7px;
+  padding-left: 5px;
+  z-index: 300;
+  color: rgb(240, 230, 230);
+  font-size: 20px;
+}
+.home .likeText {
+  margin-left: 50px;
 }
 
-.description {
+.home .icon {
+  padding: 5px;
+  box-shadow: 7px 1px 23px 3px rgb(226, 216, 216);
+  font-size: 40px;
+  color: red;
+}
+.home .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: cornsilk;
+  padding-top: 10px;
+  font-family: "Goblin One", cursive;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
 }
 
-img {
+.icon {
+  position: absolute;
+  z-index: 150px;
+  color: white;
+  width: 40px;
+}
+
+.home .description {
+  background-color: cornsilk;
+  font-family: "Dongle", sans-serif;
+  font-size: 27px;
+  line-height: 27px;
+  font-weight: 500;
+}
+
+.home img {
   width: 100%;
-  width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }

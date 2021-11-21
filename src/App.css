@@ -3,6 +3,7 @@ body {
   font-family: "Goblin One", cursive;
   font-family: "M PLUS 1", sans-serif;
   font-family: "Montserrat", sans-serif;
+  background: black;
 }
 
 .wrapper {
@@ -20,17 +21,28 @@ header {
 
 header div {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  box-shadow: 1px 1px 5px 3px rgb(124, 6, 6);
 }
 
 header button {
   height: 10px;
+  border-radius: 10%;
+  box-shadow: 1px 1px 5px 3px rgb(124, 6, 6);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ec1d24;
+  background-image: url(https://res.cloudinary.com/dyj84szrx/image/upload/v1637515816/MARVEL/button_ijhs0x.png);
+  margin: 20px;
   padding: 20px;
+  font-family: "Goblin One", cursive;
+
   margin-left: 70px;
+}
+
+header button img {
+  width: 60%;
 }
 
 .logo {
@@ -44,4 +56,11 @@ h1 {
   font-family: "Goblin One", cursive;
   font-size: 38px;
   line-height: 48px;
+  color: rgba(190, 176, 176, 0.9);
+}
+
+h2 {
+  font-family: "Goblin One", cursive;
+  font-size: 30px;
+  line-height: 38px;
 }

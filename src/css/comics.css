@@ -4,39 +4,108 @@
   flex-wrap: wrap;
 }
 
-.comics .bloc {
-  background-color: pink;
-  display: flex;
-  flex-direction: column;
+.search {
+  padding: 10px 200px 10px 200px;
+  margin-bottom: 50px;
+  border: red 1px solid;
+  box-shadow: 1px 1px 10px 3px rgb(41, 39, 39);
+}
 
-  margin-bottom: 70px;
+.search::placeholder {
+  width: 250px;
+}
+
+.comics {
+  background-image: url(https://res.cloudinary.com/dyj84szrx/image/upload/v1637513551/MARVEL/lune_ulmc2q.png);
+  background-repeat: no-repeat;
+  z-index: -10px;
+}
+
+.comics .bloc {
+  display: flex;
+  position: relative;
+  display: flex;
+  width: 300px;
+  z-index: 30px;
+
+  flex-direction: column;
+  column-gap: 70px;
+  row-gap: 10px;
+  margin-bottom: 30px;
+  box-shadow: 7px 1px 23px 3px grey;
+
+  margin-bottom: 150px;
 }
 
 .comics .image {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+  position: relative;
+  display: flex;
+  height: 40%;
+  justify-content: start;
+  width: 100%;
 }
 
 .comics .details {
-  width: 300px;
+  width: 95%;
+  display: flex;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: brown;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+
+  gap: 25px;
+
   gap: 5px;
 }
+.comic .favori {
+  display: flex;
+  row-gap: 20px;
 
-.comics .BDD {
-  padding-left: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.comics .like {
+  display: flex;
+  padding: 7px;
+  padding-left: 5px;
+  z-index: 300;
+  color: white;
+  font-size: 20px;
+}
+.comics .likeText {
+  margin-left: 50px;
 }
 
+.icon {
+  font-size: 30px;
+}
 .comics .title {
-  background-color: blue;
-  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: cornsilk;
+  padding-top: 10px;
+  font-family: "Goblin One", cursive;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.icon {
+  position: absolute;
+  z-index: 150px;
+  color: white;
+  width: 40px;
 }
 
 .comics .description {
   background-color: cornsilk;
+  font-family: "Dongle", sans-serif;
+  font-size: 27px;
+  line-height: 27px;
+  font-weight: 500;
 }
 
 .comics img {

@@ -26,6 +26,22 @@ const Bookmarks = () => {
     if (lsComics) setBookmarksComics(JSON.parse(lsComics));
   }, []);
 
+  const handleDeleteBDD = async (elem) => {
+    console.log("a effacer", elem._id);
+    const response = await axios.post(
+      `http://localhost:4000/bookmarks/delete`,
+      {
+        id: elem._id,
+      },
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+          // authorization: "Bearer " + token,
+        },
+      }
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,7 +59,8 @@ const Bookmarks = () => {
     };
     fetchData();
   }, []);
-  console.log("mes datas", data[0]._id);
+  //console.log("mes datas", data[0]._id);
+
   return (
     <div>
       <div className="bookmarks">
@@ -53,19 +70,8 @@ const Bookmarks = () => {
             return (
               <div key={elem._id}>
                 <div className="bloc3">
-                  <div className="image">
-                    <img
-                      src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-                      alt="miniature du personnage"
-                    ></img>
-                  </div>
-                  <div className="details3">
-                    <div className="title">{elem.title}</div>
-                    <div className="description">{elem.description}</div>
-                  </div>
-
-                  <div>
-                    {console.log(elem.name)}
+                  {" "}
+                  <div className="dislike">
                     <FontAwesomeIcon
                       icon={["fas", "heart-broken"]}
                       onClick={() => {
@@ -85,18 +91,49 @@ const Bookmarks = () => {
                       }}
                     />
                   </div>
-                </div>
+                  <div className="image">
+                    <img
+                      src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                      alt="miniature du personnage"
+                    ></img>
+                  </div>
+                  <div className="details3">
+                    <div className="title">{elem.title}</div>
+                    <div className="description">{elem.description}</div>
+                  </div>
+                  <div>{console.log(elem.name)}</div>
+                </div>{" "}
+                <div className="blur"> </div>
               </div>
             );
           })}{" "}
         </div>
       </div>
-      <div>
+      <div className="bookmarks">
         <h2>Mes personnages préférés</h2>
 
         {bookmarks.map((elem) => {
           return (
             <div key={elem._id}>
+              {" "}
+              <div className="dislike">
+                <FontAwesomeIcon
+                  icon={["fas", "heart-broken"]}
+                  onClick={() => {
+                    console.log("toremove");
+                    let toRemove = bookmarks.find(
+                      (item) => item._id === elem._id
+                    );
+
+                    const index = bookmarks.indexOf(toRemove);
+                    console.log("monindex", index);
+                    bookmarks.splice(index, 1);
+
+                    localStorage.setItem("favorite", JSON.stringify(bookmarks));
+                    window.location.reload();
+                  }}
+                />
+              </div>
               <Link
                 to={`/characters/${elem._id}`}
                 state={{
@@ -120,60 +157,50 @@ const Bookmarks = () => {
                   </div>
                 </div>
               </Link>{" "}
-              <div>
-                <FontAwesomeIcon
-                  icon={["fas", "heart-broken"]}
-                  onClick={() => {
-                    console.log("toremove");
-                    let toRemove = bookmarks.find(
-                      (item) => item._id === elem._id
-                    );
-
-                    const index = bookmarks.indexOf(toRemove);
-                    console.log("monindex", index);
-                    bookmarks.splice(index, 1);
-
-                    localStorage.setItem("favorite", JSON.stringify(bookmarks));
-                    window.location.reload();
-                  }}
-                />
-              </div>
             </div>
           );
         })}
       </div>
       <div className="BDD">
-        <h2>Ma Base de donnée</h2>
-        <div>
-          <div className="gallery">
-            {data.map((elem) => {
-              return (
-                <div key={elem._id}>
-                  <div className="bloc3">
-                    <div className="image">
-                      <img
-                        src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-                        alt="miniature du personnage"
-                      ></img>
-                    </div>
-                    <div className="details3">
-                      <div className="title">{elem.title}</div>
-                      <div className="description">{elem.description}</div>
-                    </div>
-
-                    <div>
-                      {console.log(elem.name)}
-                      <FontAwesomeIcon
-                        icon={["fas", "heart-broken"]}
-                        onClick={() => {}}
-                      />
-                    </div>
+        <h2>Ma Base de donnée</h2>{" "}
+        {token ? (
+          <div>
+            <div className="bookmarks">
+              {data.map((elem) => {
+                return (
+                  <div key={elem._id}>
+                    {" "}
+                    <div className="bloc3">
+                      {" "}
+                      <div className="dislike">
+                        <FontAwesomeIcon
+                          icon={["fas", "heart-broken"]}
+                          onClick={() => {
+                            handleDeleteBDD(elem);
+                            window.location.reload();
+                          }}
+                        />
+                      </div>
+                      <div className="image">
+                        <img
+                          src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                          alt="miniature du personnage"
+                        ></img>
+                      </div>
+                      <div className="details3">
+                        <div className="title">{elem.title}</div>
+                        <div className="description">{elem.description}</div>
+                      </div>
+                      <div>{console.log(elem.name)}</div>
+                    </div>{" "}
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>"Merci de vous connecter pour accéder à la BDD"</div>
+        )}
       </div>
     </div>
   );
