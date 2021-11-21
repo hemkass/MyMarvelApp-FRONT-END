@@ -34,7 +34,7 @@ const Comics = () => {
   const handleComicBdd = async (elem) => {
     console.log(elem);
     const response = await axios.post(
-      `http://localhost:4000/comics/bookmarks`,
+      `http://localhost:4000/comics/bookmarks/add`,
       {
         description: elem.description,
         path: elem.thumbnail.path,

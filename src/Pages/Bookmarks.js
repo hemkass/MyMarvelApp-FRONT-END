@@ -1,14 +1,19 @@
 import "../App.css";
 import "../css/bookmarks.css";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import Login from "../components/Login";
 
 const Bookmarks = () => {
   // gestion des favoris par le local storage
-
+  const token = Cookies.get("Login");
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksComics, setBookmarksComics] = useState([]);
+  const [BDD, setBDD] = useState();
+  const [data, setData] = useState([]);
 
   //const lsComics = localStorage.getItem("favoriteComics");
   useEffect(() => {
@@ -21,6 +26,24 @@ const Bookmarks = () => {
     if (lsComics) setBookmarksComics(JSON.parse(lsComics));
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:4000/bookmarks`, {
+          headers: {
+            authorization: `Bearer ${token}`,
+            // authorization: "Bearer " + token,
+          },
+        });
+        setData(response.data);
+        console.log("ma réponse", response.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log("mes datas", data[0]._id);
   return (
     <div>
       <div className="bookmarks">
@@ -119,8 +142,38 @@ const Bookmarks = () => {
           );
         })}
       </div>
-      <div>
+      <div className="BDD">
         <h2>Ma Base de donnée</h2>
+        <div>
+          <div className="gallery">
+            {data.map((elem) => {
+              return (
+                <div key={elem._id}>
+                  <div className="bloc3">
+                    <div className="image">
+                      <img
+                        src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                        alt="miniature du personnage"
+                      ></img>
+                    </div>
+                    <div className="details3">
+                      <div className="title">{elem.title}</div>
+                      <div className="description">{elem.description}</div>
+                    </div>
+
+                    <div>
+                      {console.log(elem.name)}
+                      <FontAwesomeIcon
+                        icon={["fas", "heart-broken"]}
+                        onClick={() => {}}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
