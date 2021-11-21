@@ -3,11 +3,15 @@ import "../css/comics.css";
 
 //import { Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Comics = () => {
+  const token = Cookies.get("Login");
   const [data, setData] = useState([]);
+  const [BDD, setBDD] = useState();
+
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
 
@@ -26,6 +30,27 @@ const Comics = () => {
     };
     fetchData();
   }, [search]);
+
+  const handleComicBdd = async (elem) => {
+    console.log(elem);
+    const response = await axios.post(
+      `http://localhost:4000/comics/bookmarks`,
+      {
+        description: elem.description,
+        path: elem.thumbnail.path,
+        extension: elem.thumbnail.extension,
+        title: elem.title,
+        _id: elem._id,
+      },
+
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+          // authorization: "Bearer " + token,
+        },
+      }
+    );
+  };
 
   return isLoading ? (
     <p>en cours de chargement</p>
@@ -49,6 +74,49 @@ const Comics = () => {
             return (
               <div key={elem._id}>
                 <div className="bloc">
+                  {" "}
+                  <div>
+                    <span>
+                      <FontAwesomeIcon
+                        icon={["fas", "heart"]}
+                        onClick={() => {
+                          if (localStorage.getItem("favoriteComics")) {
+                            let arr = JSON.parse(
+                              localStorage.getItem("favoriteComics")
+                            );
+
+                            if (!arr.find((item) => item._id === elem._id)) {
+                              arr.push(elem);
+
+                              localStorage.setItem(
+                                "favoriteComics",
+                                JSON.stringify(arr)
+                              );
+                            } else {
+                              console.log("attention");
+                            }
+                          } else {
+                            let arr2 = [elem];
+
+                            localStorage.setItem(
+                              "favoriteComics",
+                              JSON.stringify(arr2)
+                            );
+                          }
+                        }}
+                      />
+                      via localStorage
+                    </span>
+                    <span className="BDD">
+                      <FontAwesomeIcon
+                        icon={["fas", "cloud-upload-alt"]}
+                        onClick={() => {
+                          handleComicBdd(elem);
+                        }}
+                      />
+                      via BDD
+                    </span>
+                  </div>
                   <div className="image">
                     <img
                       src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
@@ -59,36 +127,6 @@ const Comics = () => {
                     <div className="title">{elem.title}</div>
                     <div className="description">{elem.description}</div>
                   </div>
-                </div>
-                <div>
-                  <FontAwesomeIcon
-                    icon={["fas", "heart"]}
-                    onClick={() => {
-                      if (localStorage.getItem("favoriteComics")) {
-                        let arr = JSON.parse(
-                          localStorage.getItem("favoriteComics")
-                        );
-
-                        if (!arr.find((item) => item._id === elem._id)) {
-                          arr.push(elem);
-
-                          localStorage.setItem(
-                            "favoriteComics",
-                            JSON.stringify(arr)
-                          );
-                        } else {
-                          console.log("attention");
-                        }
-                      } else {
-                        let arr2 = [elem];
-
-                        localStorage.setItem(
-                          "favoriteComics",
-                          JSON.stringify(arr2)
-                        );
-                      }
-                    }}
-                  />
                 </div>
               </div>
             );

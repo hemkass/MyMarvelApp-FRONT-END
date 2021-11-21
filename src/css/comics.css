@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 
-.bloc {
+.comics .bloc {
   background-color: pink;
   display: flex;
   flex-direction: column;
@@ -12,12 +12,13 @@
   margin-bottom: 70px;
 }
 
-.image {
-  width: 250px;
+.comics .image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
-.details {
-  padding-left: 50px;
+.comics .details {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -25,16 +26,20 @@
   gap: 5px;
 }
 
+.comics .BDD {
+  padding-left: 50px;
+}
+
 .comics .title {
   background-color: blue;
   padding-top: 20px;
 }
 
-.description {
+.comics .description {
   background-color: cornsilk;
 }
 
-img {
+.comics img {
   width: 100%;
   height: 100%;
   object-fit: cover;

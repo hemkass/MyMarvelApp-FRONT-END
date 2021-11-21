@@ -1,10 +1,47 @@
 /* Other rules */
 body {
-  background: #000000;
+  font-family: "Goblin One", cursive;
+  font-family: "M PLUS 1", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .wrapper {
-  width: 1400px;
+  width: 1500px;
   margin: 30px auto 30px auto;
-  background: #000000;
+}
+.logo {
+  height: 100%;
+  object-fit: cover;
+}
+
+header {
+  height: 100px;
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+}
+
+header button {
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ec1d24;
+  padding: 20px;
+  margin-left: 70px;
+}
+
+.logo {
+  width: 150px;
+}
+header img {
+  height: 100%;
+}
+
+h1 {
+  font-family: "Goblin One", cursive;
+  font-size: 38px;
+  line-height: 48px;
 }

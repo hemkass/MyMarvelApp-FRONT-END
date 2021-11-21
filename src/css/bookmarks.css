@@ -2,8 +2,9 @@
   height: 500px;
   display: flex;
   flex-direction: row;
-  column-gap: 20px;
+  column-gap: 50px;
   flex-wrap: wrap;
+  margin-bottom: 200px;
 }
 
 .bloc3 {
@@ -14,7 +15,8 @@
   column-gap: 70px;
   row-gap: 10px;
 
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  box-shadow: 1px 1px 3px 3px grey;
 }
 
 .image {

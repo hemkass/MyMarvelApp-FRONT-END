@@ -3,10 +3,11 @@
   column-gap: 50px;
 }
 
-.bloc {
+.scene .bloc {
   background-color: blue;
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 
 .image {

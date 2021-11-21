@@ -1,0 +1,109 @@
+form {
+  margin: 20px auto 20px auto;
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  column-gap: 50px;
+  background-color: white;
+}
+
+form input {
+  margin-bottom: 20px;
+  width: 250px;
+  padding: 10px;
+}
+.avatar {
+  margin-left: 200px;
+  padding: 10px;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 50; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.closebutton {
+  color: #999999;
+  position: absolute;
+  z-index: 70;
+  right: 20px;
+  top: 10px;
+}
+
+.closebutton:hover {
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+form .submitbutton button:hover {
+  background-color: #ec1d24;
+  color: white;
+  font-family: MaisonNeue Med;
+}
+
+form .submitbutton button {
+  height: 30px;
+  border: 1px solid #ec1d24;
+  font-family: MaisonNeue Med;
+  color: #ec1d24;
+  background-color: honeydew;
+  padding: 7px 15px 7px 15px;
+  margin: 0px;
+}
+form p {
+  text-align: left;
+  padding-left: 50px;
+  padding-bottom: 20px;
+}
+
+label {
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+
+  display: block;
+
+  padding-top: 50px;
+  text-indent: -170px;
+}
+
+input::placeholder {
+  color: grey;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.checkbox input {
+  background-color: chocolate;
+  width: 13px;
+  height: 13px;
+
+  vertical-align: bottom;
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+form img {
+  width: 100px;
+  height: 100px;
+}

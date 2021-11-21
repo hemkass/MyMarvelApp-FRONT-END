@@ -40,27 +40,28 @@ const Bookmarks = () => {
                     <div className="title">{elem.title}</div>
                     <div className="description">{elem.description}</div>
                   </div>
-                </div>{" "}
-                <div>
-                  {console.log(elem.name)}
-                  <FontAwesomeIcon
-                    icon={["fas", "heart-broken"]}
-                    onClick={() => {
-                      let toRemove = bookmarks.find(
-                        (item) => item._id === elem._id
-                      );
 
-                      const index = bookmarks.indexOf(toRemove);
-                      console.log("monindex", index);
-                      bookmarks.splice(index, 1);
+                  <div>
+                    {console.log(elem.name)}
+                    <FontAwesomeIcon
+                      icon={["fas", "heart-broken"]}
+                      onClick={() => {
+                        let toRemove = bookmarksComics.find(
+                          (item) => item._id === elem._id
+                        );
 
-                      localStorage.setItem(
-                        "favoriteComics",
-                        JSON.stringify(bookmarks)
-                      );
-                      window.location.reload();
-                    }}
-                  />
+                        const index = bookmarksComics.indexOf(toRemove);
+                        console.log("monindex", index);
+                        bookmarksComics.splice(index, 1);
+
+                        localStorage.setItem(
+                          "favoriteComics",
+                          JSON.stringify(bookmarksComics)
+                        );
+                        window.location.reload();
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             );
@@ -81,7 +82,7 @@ const Bookmarks = () => {
                   desc: elem.description,
                 }}
               >
-                <div className="bloc">
+                <div className="bloc3">
                   <div className="image">
                     <img
                       src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
@@ -117,6 +118,9 @@ const Bookmarks = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        <h2>Ma Base de donnée</h2>
       </div>
     </div>
   );
