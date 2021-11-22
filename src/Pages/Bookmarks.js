@@ -29,7 +29,8 @@ const Bookmarks = () => {
   const handleDeleteBDD = async (elem) => {
     console.log("a effacer", elem._id);
     const response = await axios.post(
-      `http://localhost:4000/bookmarks/delete`,
+      `https://marvel-bk.herokuapp.com/bookmarks/delete`,
+      // `http://localhost:4000/bookmarks/delete`,
       {
         id: elem._id,
       },

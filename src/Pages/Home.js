@@ -30,9 +30,12 @@ const Home = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:4000/characters?name=${search}&skip=${skip}&limit=${limit}`
+            `https://marvel-bk.herokuapp.com/characters?name=${search}&skip=${skip}&limit=${limit}`
+            //`http://localhost:4000/characters?name=${search}&skip=${skip}&limit=${limit}`
           );
-          const count = await axios.get(`http://localhost:4000/count`);
+          const count = await axios.get(
+            `https://marvel-bk.herokuapp.com/count`
+          ); //`http://localhost:4000/count`);
           //console.log(response.data);
           setData(response.data);
           setCount(count.data.caractCount);

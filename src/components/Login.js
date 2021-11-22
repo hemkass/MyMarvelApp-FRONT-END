@@ -20,10 +20,13 @@ const Login = ({ className, connected, setConnected, login, setLogin }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/user/login", {
-        email: `${email}`,
-        password: `${password}`,
-      });
+      const response = await axios.post(
+        `https://marvel-bk.herokuapp.com/user/login`, //"http://localhost:4000/user/login",
+        {
+          email: `${email}`,
+          password: `${password}`,
+        }
+      );
       setData(response.data);
       setIsLoading(false);
 

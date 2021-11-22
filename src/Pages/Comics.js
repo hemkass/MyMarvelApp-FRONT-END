@@ -19,7 +19,8 @@ const Comics = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/comics?title=${search}`
+          /*  `http://localhost:4000/comics?title=${search}`*/
+          `https://marvel-bk.herokuapp.com/comics?title=${search}`
         );
 
         setData(response.data);
@@ -34,7 +35,7 @@ const Comics = () => {
   const handleComicBdd = async (elem) => {
     console.log(elem);
     const response = await axios.post(
-      `http://localhost:4000/comics/bookmarks/add`,
+      `https://marvel-bk.herokuapp.com/comics/bookmarks/add`, //`http://localhost:4000/comics/bookmarks/add`,
       {
         description: elem.description,
         path: elem.thumbnail.path,

@@ -35,7 +35,8 @@ const Signup = ({ signUp, setSignUp, className }) => {
       formData.append("picture", file);
       console.log(formData);
       const response = await axios.post(
-        "http://localhost:4000/user/signup",
+        `https://marvel-bk.herokuapp.com/user/signup`,
+        // "http://localhost:4000/user/signup",
         formData,
         {
           headers: {
