@@ -46,12 +46,16 @@ const Bookmarks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/bookmarks`, {
-          headers: {
-            authorization: `Bearer ${token}`,
-            // authorization: "Bearer " + token,
-          },
-        });
+        const response = await axios.get(
+          `https://marvel-bk.herokuapp.com/bookmarks`,
+          {
+            //`http://localhost:4000/bookmarks`, {
+            headers: {
+              authorization: `Bearer ${token}`,
+              // authorization: "Bearer " + token,
+            },
+          }
+        );
         setData(response.data);
         console.log("ma réponse", response.data);
       } catch (error) {
