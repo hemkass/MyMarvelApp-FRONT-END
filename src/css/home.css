@@ -88,7 +88,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: cornsilk;
+  color: cornsilk;
   padding-top: 10px;
   font-family: "Goblin One", cursive;
   font-size: 20px;
@@ -104,7 +104,7 @@
 }
 
 .home .description {
-  background-color: cornsilk;
+  color: cornsilk;
   font-family: "Dongle", sans-serif;
   font-size: 27px;
   line-height: 27px;
