@@ -15,6 +15,11 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
 
+  const handlePageClick = (event) => {
+    console.log(event);
+    setSkip((event - 1) * 100);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -129,6 +134,17 @@ const Comics = () => {
                   <div className="details">
                     <div className="title">{elem.title}</div>
                     <div className="description">{elem.description}</div>
+                  </div>
+                  <div>
+                    {
+                      <Paginator
+                        page={1}
+                        pageSize={100}
+                        pageGroupSize={7}
+                        totalItems={count}
+                        callback={handlePageClick}
+                      />
+                    }
                   </div>
                 </div>
               </div>

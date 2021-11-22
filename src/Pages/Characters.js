@@ -10,6 +10,11 @@ const Characters = () => {
   const location = useLocation();
   const { name, id, description } = location.state;
 
+  const handlePageClick = (event) => {
+    console.log(event);
+    setSkip((event - 1) * 100);
+  };
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,6 +56,17 @@ const Characters = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        {
+          <Paginator
+            page={1}
+            pageSize={100}
+            pageGroupSize={7}
+            totalItems={count}
+            callback={handlePageClick}
+          />
+        }
       </div>
     </div>
     // <div>{data.comics[1]._id}</div>
