@@ -57,6 +57,18 @@ const Home = () => {
     <p>en cours de chargement</p>
   ) : (
     <div className="home">
+      <div className="page">
+        {
+          <Paginator
+            className="page"
+            page={1}
+            pageSize={100}
+            pageGroupSize={7}
+            totalItems={count}
+            callback={handlePageClick}
+          />
+        }
+      </div>
       <div className="wrapper">
         <h1>Les Personnages</h1>
         <div className="searchDiv">
@@ -90,7 +102,7 @@ const Home = () => {
                           let arr = JSON.parse(
                             localStorage.getItem("favorite")
                           );
-                          console.log("monobjet", arr);
+                          /*  console.log("monobjet", arr); */
 
                           console.log(
                             "ma condition",

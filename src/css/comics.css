@@ -113,3 +113,16 @@
   height: 100%;
   object-fit: cover;
 }
+
+.imageByID {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.blocID {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 50px;
+}

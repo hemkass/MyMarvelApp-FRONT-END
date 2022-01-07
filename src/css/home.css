@@ -2,6 +2,11 @@
   text-decoration: none;
 }
 
+.page {
+  background-color: rgb(219, 41, 41);
+  border-radius: 7px;
+}
+
 .section {
   display: flex;
   column-gap: 50px;
@@ -89,11 +94,12 @@
   color: red;
 }
 .home .title {
+  margin-bottom: 30px;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: red;
+  color: white;
   padding-top: 10px;
   font-family: "Goblin One", cursive;
   font-size: 20px;
@@ -109,8 +115,9 @@
 }
 
 .home .description {
+  padding: 5px;
   text-decoration: none;
-  color: cornsilk;
+  color: white;
   font-family: "Dongle", sans-serif;
   font-size: 27px;
   line-height: 27px;

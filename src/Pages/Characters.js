@@ -10,10 +10,10 @@ const Characters = () => {
   const location = useLocation();
   const { name, id, description } = location.state;
 
-  const handlePageClick = (event) => {
+  /*   const handlePageClick = (event) => {
     console.log(event);
     setSkip((event - 1) * 100);
-  };
+  }; */
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,8 +42,8 @@ const Characters = () => {
       <div className="section">
         {data.comics.map((elem) => {
           return (
-            <div key={elem._id} className="bloc">
-              <div className="image">
+            <div key={elem._id} className="blocID">
+              <div className="imageByID">
                 <img
                   src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
                   alt="miniature du personnage"
@@ -58,7 +58,7 @@ const Characters = () => {
         })}
       </div>
       <div>
-        {
+        {/*   {
           <Paginator
             page={1}
             pageSize={100}
@@ -66,7 +66,7 @@ const Characters = () => {
             totalItems={count}
             callback={handlePageClick}
           />
-        }
+        } */}
       </div>
     </div>
     // <div>{data.comics[1]._id}</div>
