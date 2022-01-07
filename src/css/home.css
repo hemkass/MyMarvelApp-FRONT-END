@@ -89,10 +89,11 @@
   color: red;
 }
 .home .title {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: cornsilk;
+  color: red;
   padding-top: 10px;
   font-family: "Goblin One", cursive;
   font-size: 20px;
