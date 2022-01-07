@@ -1,3 +1,7 @@
+.noLink {
+  text-decoration: none;
+}
+
 .section {
   display: flex;
   column-gap: 50px;

@@ -32,15 +32,14 @@ const Header = () => {
         ></img>
 
         <div>
-          <Link to="/comics">
-            {" "}
+          <Link className="noLink" to="/comics">
             <button>Comics</button>
           </Link>
-          <Link to="/">
+          <Link className="noLink" to="/">
             <button>Characters</button>
           </Link>
 
-          <Link to="/bookmarks">
+          <Link className="noLink" to="/bookmarks">
             <button>favoris</button>
           </Link>
         </div>
