@@ -135,10 +135,12 @@ const Home = () => {
                           alt="miniature du personnage"
                         ></img>
                       </div>
-                      <div className="details">
-                        <div className="title">{elem.name}</div>{" "}
+                      <div className="details" className="noLink">
+                        <div className="title noLink">{elem.name}</div>{" "}
                         {elem.description && (
-                          <div className="description">{elem.description}</div>
+                          <div className="description noLink">
+                            {elem.description}
+                          </div>
                         )}
                       </div>
                     </div>

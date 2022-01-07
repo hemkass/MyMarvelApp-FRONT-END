@@ -33,14 +33,14 @@ const Header = () => {
 
         <div>
           <Link className="noLink" to="/comics">
-            <button>Comics</button>
+            <button className="noLink">Comics</button>
           </Link>
           <Link className="noLink" to="/">
-            <button>Characters</button>
+            <button className="noLink">Characters</button>
           </Link>
 
           <Link className="noLink" to="/bookmarks">
-            <button>favoris</button>
+            <button className="noLink">favoris</button>
           </Link>
         </div>
         <div>
