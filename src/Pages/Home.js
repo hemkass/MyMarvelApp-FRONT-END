@@ -120,6 +120,7 @@ const Home = () => {
                     />
                   </div>
                   <Link
+                    className="noLink"
                     to={`/characters/${elem._id}`}
                     state={{
                       name: elem.name,
@@ -141,7 +142,7 @@ const Home = () => {
                         )}
                       </div>
                     </div>
-                  </Link>{" "}
+                  </Link>
                 </div>
               );
             })}

@@ -7,6 +7,10 @@ body {
   color: rgba(190, 176, 176, 0.9);
 }
 
+.noLink {
+  text-decoration: none;
+}
+
 .wrapper {
   width: 1500px;
   margin: 30px auto 30px auto;
