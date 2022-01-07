@@ -108,6 +108,7 @@
 }
 
 .home .description {
+  text-decoration: none;
   color: cornsilk;
   font-family: "Dongle", sans-serif;
   font-size: 27px;
